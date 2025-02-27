@@ -1,5 +1,11 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="./resources/img/imagen.jpg" width="400" alt="Laravel Logo"></a></p>
 
 ## Diego Armando Castro Duarte
 
 ¿Por qué deberían de pasar el primer corte de Backend?
+
+- Tengo conocimientos técnicos sólidos
+- Tengo experiencia en frameworks y tecnologías clave
+- Manejo un código limpio y estructurado
+- Buen manejo de herramientas y procesos esenciales
+- Hay buena comunicación y trabajo en equipo
