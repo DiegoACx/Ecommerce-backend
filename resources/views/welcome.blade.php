@@ -24,6 +24,14 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .btn-orange {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+        }
+        .btn-orange:hover {
+            background-color: #e68900;
+        }
         .footer {
             background-color: #ff9800;
             color: white;
@@ -79,6 +87,7 @@
                     <img src="electronica.jpg" class="img-fluid" alt="Electrónica">
                     <h4>Electrónica</h4>
                     <p>Encuentra los mejores electrónicos.</p>
+                    <button class="btn btn-orange">Ver más</button>
                 </div>
             </div>
             <div class="col-md-4">
@@ -86,6 +95,7 @@
                     <img src="libros.jpg" class="img-fluid" alt="Libros">
                     <h4>Libros</h4>
                     <p>Explora nuestra colección de libros.</p>
+                    <button class="btn btn-orange">Ver más</button>
                 </div>
             </div>
             <div class="col-md-4">
@@ -93,6 +103,7 @@
                     <img src="ropa.jpg" class="img-fluid" alt="Ropa">
                     <h4>Ropa</h4>
                     <p>Encuentra la mejor ropa y accesorios.</p>
+                    <button class="btn btn-orange">Ver más</button>
                 </div>
             </div>
         </div>
