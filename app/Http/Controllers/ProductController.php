@@ -12,7 +12,7 @@ class ProductController extends Controller
 
 
     public function create(){
-        echo "FORMULARIO PARA CREAR UN PRODUCTO";
+        return view('products.create');
     }
 
     public function show($name){
