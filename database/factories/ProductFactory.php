@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(),
             'price' => fake()->randomFloat(2,10000,3000000),
             'category_id' => Category::inRandomOrder()->first()->id,
-            'url_image' => fake()->imageUrl(640,400,'products', true)
+            'url_image' => 'https://c0.klipartz.com/pngpicture/656/414/gratis-png-estuches-y-carcasas-para-computadora-gabinete-gamer-bluecase-bg-009-atx-gabinete-bluecase-gamer-bg-024-sem-fonte-pc-gamer-thumbnail.png'
         ];
     }
 }
