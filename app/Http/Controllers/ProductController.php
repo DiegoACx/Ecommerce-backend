@@ -20,7 +20,9 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function show($name){
-        return view('products.show');
+    public function show($id){
+
+        $product = Product::find($id);
+        return view('products.show', ['product'=>$product]);
     }
 }
