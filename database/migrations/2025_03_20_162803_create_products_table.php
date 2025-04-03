@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->decimal('price');
+            $table->text('description');
+            $table->double('price');
+
+            $table->string('url_image');
 
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category');
