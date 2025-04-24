@@ -5,19 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Producto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar, .footer {
-            background-color: #ff9800;
-        }
-        .card {
-            border: 2px solid #ff9800;
-            border-radius: 10px;
-        }
-        .btn-primary {
-            background-color: #ff9800;
-            border-color: #ff9800;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <!-- Navbar -->

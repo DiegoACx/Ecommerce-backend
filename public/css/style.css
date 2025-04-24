@@ -1,0 +1,11 @@
+.navbar, .footer {
+    background-color: #ff9800;
+}
+.card {
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+}
+.btn-primary {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
