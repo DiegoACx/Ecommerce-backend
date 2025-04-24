@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -6,15 +6,22 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        :root {
+            --unab-orange: #f7941d;
+            --unab-orange-dark: #d6781c;
+            --unab-orange-light: #f8e0b3;
+        }
+
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(to bottom right, #ffffff, #f8e0b3); /* Naranja suave */
+            background: linear-gradient(to bottom right, #ffffff, var(--unab-orange-light));
             margin: 0;
             min-height: 100vh;
             display: flex;
@@ -22,7 +29,7 @@
         }
 
         .navbar {
-            background-color: #f7941d !important; /* Naranja */
+            background-color: var(--unab-orange) !important;
             border-bottom: none;
         }
 
@@ -60,9 +67,9 @@
             flex-grow: 1;
         }
 
-        .form-container {
+        .auth-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             background-color: white;
             border-radius: 15px;
             padding: 30px;
@@ -70,10 +77,23 @@
             animation: fadeInUp 0.7s ease-in-out;
         }
 
-        .form-container h4 {
+        .auth-container .card-header {
+            background-color: var(--unab-orange);
+            color: white;
+            font-weight: 700;
             text-align: center;
-            color: #f7941d; /* Naranja */
-            margin-bottom: 25px;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px;
+        }
+
+        .auth-container .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .auth-container .card-body {
+            padding: 30px;
         }
 
         .form-control {
@@ -84,26 +104,38 @@
         }
 
         .form-control:focus {
-            border-color: #f7941d;
+            border-color: var(--unab-orange);
             box-shadow: 0 0 0 0.2rem rgba(247, 148, 29, 0.25);
         }
 
         .btn-unab {
-            background-color: #f7941d; /* Naranja */
+            background-color: var(--unab-orange);
             color: white;
             font-weight: 600;
-            padding: 10px 15px;
+            padding: 10px 25px;
             border-radius: 10px;
             border: none;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .btn-unab:hover {
-            background-color: #d6781c; /* Naranja más oscuro */
+            background-color: var(--unab-orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-link-unab {
+            color: var(--unab-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-link-unab:hover {
+            color: var(--unab-orange-dark);
+            text-decoration: underline;
         }
 
         footer {
-            background-color: #f7941d; /* Naranja */
+            background-color: var(--unab-orange);
             color: white;
             text-align: center;
             padding: 12px 0;
@@ -112,6 +144,26 @@
             box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
         }
 
+        /* Password toggle */
+        .password-toggle-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            z-index: 5;
+        }
+
+        .password-toggle:hover {
+            color: var(--unab-orange);
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -122,13 +174,28 @@
                 transform: translateY(0);
             }
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .auth-container {
+                padding: 15px;
+            }
+            
+            .auth-container .card-body {
+                padding: 20px;
+            }
+            
+            .navbar-brand img {
+                height: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm">
-            <div class="container d-flex align-items-center justify-content-between">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="https://www.unab.edu.co/wp-content/uploads/2020/03/logo-horizontal-unab-blanco.png" alt="Logo UNAB">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -155,7 +222,6 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar sesión') }}
                                     </a>
@@ -176,9 +242,26 @@
     </div>
 
     <footer>
-        © 2024 UNAB Tienda. Todos los derechos reservados.
+        © {{ date('Y') }} UNAB. Todos los derechos reservados.
     </footer>
 
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling;
+            
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = "password";
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>
